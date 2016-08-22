@@ -1,14 +1,15 @@
-FROM microsoft/dotnet
+FROM linuxserver/baseimage
 MAINTAINER Uirel <uirel@gany.net>
-
-# Setup Mono Repo
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF &&\
-
 
 # Install Pre Requisites
 RUN add-apt-repository ppa:mc3man/trusty-media -y
 RUN apt-get -q update && \
-apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano
+apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano curl libunwind8 gettext
+
+#Setup DotNet
+curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=809130
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 
 #Mappings and ports
 VOLUME ["/config"]
