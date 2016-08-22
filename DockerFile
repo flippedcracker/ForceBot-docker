@@ -7,8 +7,8 @@ RUN apt-get -q update && \
 apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano curl libunwind8 gettext
 
 #Setup DotNet
-curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=809130
-sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet
+RUN curl -sSL -o dotnet.tar.gz https://go.microsoft.com/fwlink/?LinkID=809130 &&\
+sudo mkdir -p /opt/dotnet && sudo tar zxf dotnet.tar.gz -C /opt/dotnet &&\
 sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 
 #Mappings and ports
