@@ -5,6 +5,14 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        wget \
+        libopus0 \
+        opus-tools \
+        libopus-dev \
+        unzip \
+        ffmpeg \
+        rsync \
+        nano \
     && rm -rf /var/lib/apt/lists/*
 
 # Install .NET Core
