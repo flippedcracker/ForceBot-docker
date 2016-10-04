@@ -3,8 +3,8 @@
 
 #Get NadekoBot Version
 git clone --branch=1.0 https://github.com/Kwoth/NadekoBot.git /NadekoBot
-cd /NadekoBot
 git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
+cd /NadekoBot
 git submodule update --init
 dotnet restore
 
