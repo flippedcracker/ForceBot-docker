@@ -7,7 +7,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E03280
 # Install Pre Requisites
 RUN add-apt-repository ppa:mc3man/trusty-media -y
 RUN apt-get -q update && \
-apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano ca-certificates curl
+apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano ca-certificates curl git
 
 # Install .NET Core
 ENV DOTNET_VERSION 1.0.1
