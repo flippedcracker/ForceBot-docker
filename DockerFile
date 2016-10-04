@@ -20,7 +20,7 @@ RUN curl -SL $DOTNET_DOWNLOAD_URL --output dotnet.tar.gz \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
 #Mappings and ports
-VOLUME ["/config"]
+VOLUME ["/NadekoBot"]
 
 #Clean Up
 RUN apt-get autoclean -y; apt-get autoremove -y &&\
