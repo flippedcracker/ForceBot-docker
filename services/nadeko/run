@@ -10,5 +10,5 @@ trap "handle_signal" SIGINT SIGTERM SIGHUP
 
 echo "starting Nadeko"
 cd /NadekoBot
-dotnet NadekoBot.exe & wait
+dotnet NadekoBot.dll & wait
 echo "stopping Nadeko"
