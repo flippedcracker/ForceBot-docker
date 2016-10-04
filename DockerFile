@@ -1,26 +1,12 @@
-FROM linuxserver/baseimage
+FROM microsoft/dotnet
 MAINTAINER Uirel <uirel@gany.net>
 
-# Setup Mono Repo
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-
 # Install Pre Requisites
-RUN add-apt-repository ppa:mc3man/trusty-media -y
 RUN apt-get -q update && \
-apt-get install -qy wget libopus0 opus-tools libopus-dev unzip ffmpeg rsync nano ca-certificates curl git libunwind8 libicu-dev
-
-# Install .NET Core
-ENV DOTNET_VERSION 1.0.1
-ENV DOTNET_DOWNLOAD_URL https://dotnetcli.blob.core.windows.net/dotnet/preview/Binaries/Latest/dotnet-dev-ubuntu-x64.latest.tar.gz
-
-RUN curl -SL $DOTNET_DOWNLOAD_URL --output dotnet.tar.gz \
-    && mkdir -p /usr/share/dotnet \
-    && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
-    && rm dotnet.tar.gz \
-    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+apt-get install -qy wget libopus0 opus-tools libopus-dev unzip libav-tools rsync nano ca-certificates curl git libunwind8 libicu-dev
 
 #Mappings and ports
-VOLUME ["/NadekoBot"]
+VOLUME ["/config"]
 
 #Clean Up
 RUN apt-get autoclean -y; apt-get autoremove -y &&\
