@@ -4,13 +4,14 @@
 rm -rf /root/NadekoBot
 
 #Get NadekoBot Version
-if [[ "$VERSION" = dev ]]; then
-        curl -s https://api.github.com/repos/Kwoth/NadekoBot/releases | grep browser_download_url | head -n 1 | cut -d '"' -f 4|wget -i - -O /root/NadekoBot.latest.zip
-else
-        curl -s https://api.github.com/repos/Kwoth/NadekoBot/releases/latest | grep browser_download_url | head -n 1 | cut -d '"' -f 4|wget -i - -O /root/NadekoBot.latest.zip
-fi
+git clone -q --branch=1.0 https://github.com/Kwoth/NadekoBot.git /root/NadekoBot
+git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
+git submodule update --init -recursive
+dotnet restore
 
-unzip /root/NadekoBot.latest.zip -d /root/NadekoBot
+#Build NadekoBot
+cd /root/NadekoBot
+dotnet build
 
 #Sync any new data files
 rsync --ignore-existing -r /root/NadekoBot/data /config
