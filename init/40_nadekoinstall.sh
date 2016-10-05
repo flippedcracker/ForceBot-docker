@@ -1,5 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 ##Install NadekoBot
+#Cleanup Existing
+rm -rf /root/NadekoBot
 
 #Get NadekoBot Version
 git clone --branch=1.0 https://github.com/Kwoth/NadekoBot.git 
