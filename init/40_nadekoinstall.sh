@@ -1,4 +1,5 @@
 #!/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 ##Install NadekoBot
 #Cleanup Existing
 rm -rf /root/NadekoBot
@@ -10,17 +11,15 @@ echo Checking Out
 git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
 git submodule update --init
 echo Dotnet Restore
-screen -d -m dotnet restore
-sleep 60
+dotnet restore
 
 #Build NadekoBot
 echo Building
 cd /root/NadekoBot/src/NadekoBot
-screen -d -m dotnet build
-sleep 60
+dotnet build
 
 #Move Data to user area
-rsync --ignore-existing -r /root/NadekoBot/data /config
+rsync --ignore-existing -r /root/NadekoBot/src/NadekoBot/data /config
 
 #Remove data folder
-rm -rf /root/NadekoBot/data
+rm -rf /root/NadekoBot/src/NadekoBot/data
