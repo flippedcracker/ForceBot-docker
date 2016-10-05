@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ##Install NadekoBot
 #Cleanup Existing
 rm -rf /root/NadekoBot
