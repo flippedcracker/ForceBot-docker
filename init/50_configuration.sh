@@ -3,8 +3,8 @@
 if test -f "/config/credentials.json"; then echo "Creds Exist"; else echo "No Credentials, Aborting!; fi
 
 #Remove Built in
-#rm /NadekoBot/credentials.json
+#rm /root/NadekoBot/src/NadekoBot/credentials.json
 
 #Adding Config file sym links
-ln -s /config/credentials.json /NadekoBot/src/NadekoBot/credentials.json
-ln -s /config/data /NadekoBot/src/NadekoBot/data
+ln -s /config/credentials.json /root/NadekoBot/src/NadekoBot/credentials.json
+ln -s /config/data /root/NadekoBot/src/NadekoBot/data
