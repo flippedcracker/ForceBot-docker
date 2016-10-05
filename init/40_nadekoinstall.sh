@@ -10,12 +10,12 @@ echo Checking Out
 git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
 git submodule update --init
 echo Dotnet Restore
-dotnet restore
+screen dotnet restore
 
 #Build NadekoBot
 echo Building
 cd /root/NadekoBot/src/NadekoBot
-dotnet build
+screen dotnet build
 
 #Remove data folder
 #rm -rf /NadekoBot/data
