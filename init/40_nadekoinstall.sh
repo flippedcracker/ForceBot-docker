@@ -2,14 +2,14 @@
 ##Install NadekoBot
 
 #Get NadekoBot Version
-git clone --branch=1.0 https://github.com/Kwoth/NadekoBot.git /NadekoBot
+git clone --branch=1.0 https://github.com/Kwoth/NadekoBot.git 
 git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
-cd /NadekoBot
+cd NadekoBot
 git submodule update --init
 dotnet restore
 
 #Build NadekoBot
-cd /NadekoBot/src/NadekoBot
+cd /root/NadekoBot/src/NadekoBot
 dotnet build
 
 #Remove data folder
