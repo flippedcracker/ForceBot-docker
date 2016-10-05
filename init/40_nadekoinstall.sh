@@ -17,5 +17,8 @@ echo Building
 cd /root/NadekoBot/src/NadekoBot
 screen dotnet build
 
+#Move Data to user area
+rsync --ignore-existing -r /root/NadekoBot/data /config
+
 #Remove data folder
-#rm -rf /NadekoBot/data
+rm -rf /root/NadekoBot/data
