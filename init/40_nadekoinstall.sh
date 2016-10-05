@@ -10,13 +10,13 @@ echo Checking Out
 git checkout -qf 0df0eea6c0e1c451f0ebf4dffbb50a3ecd99eda5
 git submodule update --init
 echo Dotnet Restore
-screen -d dotnet restore
+screen -d -m dotnet restore
 sleep 60
 
 #Build NadekoBot
 echo Building
 cd /root/NadekoBot/src/NadekoBot
-screen -d dotnet build
+screen -d -m dotnet build
 sleep 60
 
 #Move Data to user area
