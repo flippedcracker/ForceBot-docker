@@ -9,6 +9,6 @@ function handle_signal {
 trap "handle_signal" SIGINT SIGTERM SIGHUP
 
 echo "starting Nadeko"
-cd /root/NadekoBot
+cd /mnt/user/appdata/forcebot/NadekoBot
 mono NadekoBot.exe & wait
 echo "stopping Nadeko"
